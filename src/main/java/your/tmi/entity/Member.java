@@ -22,7 +22,6 @@ public class Member {
     private String password;
     private String nickName;
 
-    private String year;
     private String month;
     private String day;
 

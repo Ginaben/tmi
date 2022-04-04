@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<block xmlns:th="http://www.w3.org/1999/xhtml" class="blockWrap">
+
+    <h1>당신의 <br>
+    <span class="title-word title-word-1">T</span><span class="title-word title-word-2">M</span><span class="title-word title-word-3">I</span></h1>
+
+    <!-- 검색하기 -->
+    <div class="schBox">
+        <form method="get" th:action="@{/list}">
+            <div class="left-box">
+                <select class="dropdown inline" name="searchType">
+                </select>
+
+                <div class="search-bar inline">
+                    <input id="search-input" name="keyword" th:value="${keyword}">
+                </div>
+            </div>
+
+            <div class="right-box">
+                <span><button class="btn_search btn" type="submit">
+                    검색하기
+                </button></span>
+            </div>
+        </form>
+    </div>
+    <!-- end search Box -->
+
+    <!-- 로그인하기 -->
+    <div>
+        <div class="left-box">
+            <span><input type="text" placeholder="아이디"></span>
+            <span><input type="password" placeholder="비밀번호"></span>
+        </div>
+
+        <div class="right-box">
+            <span><button class="btn" type="submit">
+                로그인
+            </button></span>
+        </div>
+    </div>
+    <!-- end login Box-->
+
+    <div>
+        <span><a th:href="@{/join}">가입하기</a></span>
+    </div>
+
+</block>
