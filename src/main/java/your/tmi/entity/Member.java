@@ -22,6 +22,7 @@ public class Member extends BaseTimeEntity {
 
     private String username;
     private String password;
+    private String rePassword;
     private String nickName;
 
     private String month;
@@ -30,9 +31,10 @@ public class Member extends BaseTimeEntity {
     @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
     public List<Info> infoList = new ArrayList<>();
 
-    public Member(String username, String password, String nickName, String month, String day) {
+    public Member(String username, String password, String rePassword ,String nickName, String month, String day) {
         this.username = username;
         this.password = password;
+        this.rePassword = rePassword;
         this.nickName = nickName;
         this.month = month;
         this.day = day;

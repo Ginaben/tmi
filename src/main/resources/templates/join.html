@@ -3,21 +3,28 @@
 
     <div>
         <div>
-            <form action="">
+            <form id="joinForm" th:action="@{/join}" method="post" th:object="${joinData}">
                 <div>
-                    <span>닉네임</span><span><input type="text"></span><br>
-                    <span>아이디</span><span><input type="text"></span><br>
-                    <span>비밀번호</span><span><input type="text"></span><br>
+                    <span>닉네임</span><span><input type="text" id="nickName" th:field="*{nickName}"></span>
+                    <button id="nickname-check">중복 확인</button><br>
+                    <div class="nickname-error"></div>
+                    <span>아이디</span><span><input type="text" id="username" th:field="*{username}"></span><br>
+                    <span>비밀번호</span><span><input type="text" id="password" th:field="*{password}"></span><br>
+                    <span>비밀번호확인</span><span><input type="text" id="rePassword" th:field="*{rePassword}"></span><br>
+                    <div class="re-password-error"></div>
                 </div>
 
                 <div>
-                    <span>월</span><span><input type="text"></span>
-                    <span>일</span><span><input type="text"></span>
+                    <span>월</span><span><input type="text" id="month" th:field="*{month}"></span>
+                    <span>일</span><span><input type="text" id="day" th:field="*{day}"></span>
                 </div>
 
-                <span><button>가입하기</button></span>
+                <span><button id="joinBtn">가입하기</button></span>
             </form>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script th:inline="javascript" th:src="@{/js/join.js}"></script>
 
 </block>

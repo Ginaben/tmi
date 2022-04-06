@@ -19,15 +19,15 @@ public class JoinController {
     private final MemberService memberService;
 
     @GetMapping("/join")
-    public String join(){
+    public String join(@ModelAttribute("joinData") MemberDto memberDto){
         return "join";
     }
 
     @PostMapping("/join")
     public String join(@Validated @ModelAttribute("joinData") MemberDto memberDto, BindingResult bindingResult) {
-        Long id = memberService.save(memberDto.getUsername(), memberDto.getPassword(), memberDto.getNickName(),
+        Long id = memberService.save(memberDto.getUsername(), memberDto.getPassword(), memberDto.getRePassword(), memberDto.getNickName(),
                 memberDto.getMonth(), memberDto.getDay());
-        return "redirect:/index";
+        return "redirect:/";
     }
 
 

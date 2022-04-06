@@ -17,9 +17,17 @@ public class MemberServiceImpl implements MemberService{
     //회원가입
     @Override
     @Transactional
-    public Long save(String username, String password, String nickName, String month, String day) {
-        Member member = memberRepository.save(new Member(username, password, nickName, month, day));
+    public Long save(String username, String password, String rePassword ,String nickName, String month, String day) {
+        Member member = memberRepository.save(new Member(username, password, rePassword, nickName, month, day));
         return member.getId();
+    }
+
+    //테스트 회원가입
+    @Override
+    @Transactional
+    public Long testSave(Member member) {
+        return memberRepository.save(new Member(member.getUsername(), member.getPassword(), member.getRePassword(), member.getNickName(),
+                member.getMonth(), member.getDay())).getId();
     }
 
 
