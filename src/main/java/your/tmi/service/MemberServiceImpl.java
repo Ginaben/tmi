@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import your.tmi.dto.MemberDto;
 import your.tmi.entity.Member;
 import your.tmi.repository.MemberRepository;
 
@@ -22,6 +23,15 @@ public class MemberServiceImpl implements MemberService{
         return member.getId();
     }
 
+    //디테일에 정보 불러오기
+    @Override
+    public MemberDto getInfo(Long id) {
+        Member member = memberRepository.getById(id);
+        return new MemberDto(member);
+    }
+
+
+
     //테스트 회원가입
     @Override
     @Transactional
@@ -29,6 +39,5 @@ public class MemberServiceImpl implements MemberService{
         return memberRepository.save(new Member(member.getUsername(), member.getPassword(), member.getRePassword(), member.getNickName(),
                 member.getMonth(), member.getDay())).getId();
     }
-
 
 }

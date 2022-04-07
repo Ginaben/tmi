@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Info extends BaseTimeEntity{
+public class Tmi extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,5 +21,13 @@ public class Info extends BaseTimeEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mno")
     private Member member;
+
+
+    //Tmi 저장
+    public Tmi (String text, Member member) {
+        this.text = text;
+        this.member = member;
+    }
+
 
 }

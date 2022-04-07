@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<block xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <!-- 페이지 css 추가 -->
+
+
+    <!-- 본문 시작 -->
+    <div class="detailWrapper">
+        <span id="id" style="display: none;">[[${member.id}]]</span>
+        <table>
+            <tr>
+                <th class="tb inline">이름</th>
+                <td>[[${member.nickName}]]</td>
+            </tr>
+            <tr>
+                <th class="tb inline">생일</th>
+                <td>[[${member.month}]]월 [[${member.day}]]일</td>
+            </tr>
+            <tr>
+                <th class="tb inline">정보</th>
+                <td>
+                    <!-- 리스트 -->
+                    <div>
+                        <div id="list-table" style="margin-top:8px;">
+                            <div th:each="tmi: ${tmi}">
+                                <span class="id" name="id" style="display: none;">[[${tmi.member.id}]]</span>
+                                <span class="tno" style="display: none;">[[${tmi.tno}]]</span>
+                                <span style="display: none;">[[${tmi.member.month}]]</span>
+                                <span style="display: none;">[[${tmi.member.day}]]</span>
+                                <span class="tmiText inline">[[${tmi.text}]]</span>
+                                <span class="tmiText inline">[[${tmi.createdTime}]]</span>
+                                <span class="deleteInfo smallLetter btn">삭제</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end tmi list -->
+
+
+                    <!-- 인풋 -->
+                    <div class="inputWrapper">
+                        <div class="inline">
+                            <input type="hidden" id="mno" th:value="${member.id}">
+                            <input type="text" id="text" name="text" class="inline input" placeholder="정보를 입력해주세요">
+                        </div>
+                        <span class="check inline"></span>
+                        <span class="addBtn inline btn">추가하기</span><br/>
+                    </div>
+                    <!-- end TMi input-->
+
+                </td>
+            </tr>
+        </table>
+
+        <span class="goHome btn"><a th:href="@{/}">메인으로</a></span>
+    </div>
+
+    <!-- 페이지 js 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script th:src="@{/js/detail.js}"></script>
+
+
+</block>

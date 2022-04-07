@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<block xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <!-- 페이지 css 추가 -->
+
+
+    <!-- 본문 시작 -->
+    <div class="MyPageWrapper">
+        <div>
+            <span th:onclick="|javascript:goDetail('${member.id}')|">나의 TMI</span>
+        </div>
+
+        <div>
+            [[${member.id}]]
+        </div>
+
+        <span class="goHome btn"><a th:href="@{/}">메인으로</a></span>
+    </div>
+
+    <!-- 페이지 js 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <script th:inline="javascript">
+        function goDetail(id) {
+            let url = "/detail/" + id;
+            location.href = url;
+        }
+    </script>
+
+
+</block>

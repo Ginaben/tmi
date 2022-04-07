@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<block xmlns:th="http://www.w3.org/1999/xhtml">
+
+    <!-- 본문 시작 -->
+    <div>
+        <table>
+            <tr class="listTb">
+                <th class="listTh">이름</th>
+                <th class="listTh">생월</th>
+                <th class="listTh">생일</th>
+            </tr>
+
+            <tr class="listTb">
+                <td class="listTh"></td>
+            </tr>
+        </table>
+    </div>
+
+    <span class="goHome btn"><a th:href="@{/}">메인으로</a></span>
+
+
+    <script th:inline="javascript">
+        function goDetail(id) {
+            /*[+
+            let url = [[@{/detail/}]] + id;
+            +]*/
+
+            location.href = url;
+        }
+
+    </script>
+
+</block>

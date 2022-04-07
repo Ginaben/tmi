@@ -14,7 +14,7 @@ import static javax.persistence.CascadeType.ALL;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member extends BaseTimeEntity {
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class Member extends BaseTimeEntity {
     private String day;
 
     @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
-    public List<Info> infoList = new ArrayList<>();
+    public List<Tmi> infoList = new ArrayList<>();
 
     public Member(String username, String password, String rePassword ,String nickName, String month, String day) {
         this.username = username;

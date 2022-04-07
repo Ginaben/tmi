@@ -3,6 +3,7 @@ package your.tmi.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import your.tmi.entity.Member;
 
 @Getter
 @Setter
@@ -17,6 +18,14 @@ public class MemberDto {
     private String month;
     private String day;
 
+
+    //datail에 정보 불러오기
+    public MemberDto(Member member) {
+        this.id = member.getId();
+        this.nickName = member.getNickName();
+        this.month = member.getMonth();
+        this.day = member.getDay();
+    }
 
 /*
     public MemberDto() {}
