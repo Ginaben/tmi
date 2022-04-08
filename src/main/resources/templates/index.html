@@ -2,6 +2,7 @@
 <block xmlns:th="http://www.w3.org/1999/xhtml" class="blockWrap">
 
     <!-- 본문 시작 -->
+    <div>
     <h1>당신의 <br>
     <span class="title-word title-word-1">T</span><span class="title-word title-word-2">M</span><span class="title-word title-word-3">I</span></h1>
 
@@ -33,28 +34,45 @@
     </div>
     <!-- end search Box -->
 
+    <!-- 로그인 wrapper-->
+    <div>
     <!-- 로그인하기 -->
-    <div>
-        <form action="">
-            <div>
-                <div class="left-box">
-                    <span><input type="text" placeholder="아이디"></span>
-                    <span><input type="password" placeholder="비밀번호"></span>
-                </div>
+        <div>
+            <form action="">
+                <div>
+                    <div class="left-box">
+                        <span><input type="text" placeholder="아이디"></span>
+                        <span><input type="password" placeholder="비밀번호"></span>
+                    </div>
 
-                <div class="right-box">
-                    <span><button class="btn" type="submit">
-                        로그인
-                    </button></span>
+                    <div class="right-box">
+                        <span><button class="btn" type="submit">
+                            로그인
+                        </button></span>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <!-- end login Box-->
+            </form>
+        </div>
+        <!-- end login Box-->
 
-    <div>
-        <span><a th:href="@{/join}">가입하기</a></span>
+        <div>
+            <span><a th:href="@{/join}">가입하기</a></span>
+        </div>
     </div>
+    <!-- end login Wrapper-->
+
+    <!-- 그룹 만들기 -->
+    <div>
+        <span>그룹 만들기</span>
+        <div>
+            <span><input type="text" placeholder="그룹 이름을 입력 해 주세요"></span>
+            <span><button>그룹만들기</button></span>
+        </div>
+    </div>
+    <!-- end register groups-->
+
+    </div>
+    <!-- end contents-->
 
     <script th:inline="javascript">
         function goDetail(id) {

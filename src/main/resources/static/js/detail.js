@@ -31,7 +31,7 @@ $(".addBtn").on("click", function(){
 }); //addInfo end
 
 //tmi 삭제
-$(".deleteInfo").on("click", function(){
+$(".deleteTmi").on("click", function(){
     let tno = $(this).parent().children(".tno").text();
     let id = $(this).parent().children(".id").text();
 

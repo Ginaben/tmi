@@ -32,5 +32,11 @@ public class TmiServiceImpl implements TmiService{
         return tmiRepository.getTmi(pageable, id);
     }
 
+    //tmi 삭제
+    @Override
+    public void removeTmi(Long tno) {
+        tmiRepository.deleteById(tno);
+    }
+
 
 }

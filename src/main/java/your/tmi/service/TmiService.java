@@ -11,5 +11,8 @@ public interface TmiService {
     //tmi 페이징
     Slice<TmiDto> getTmi(Pageable pageable, Long id);
 
+    //tmi 삭제
+    void removeTmi(Long tno);
+
 
     }

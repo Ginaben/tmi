@@ -31,6 +31,10 @@ public class Member {
     @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
     public List<Tmi> infoList = new ArrayList<>();
 
+    @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
+    public List<Group> groupList = new ArrayList<>();
+
+
     public Member(String username, String password, String rePassword ,String nickName, String month, String day) {
         this.username = username;
         this.password = password;
