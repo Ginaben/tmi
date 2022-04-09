@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +18,7 @@ import your.tmi.entity.Member;
 import your.tmi.service.MemberService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -36,11 +38,20 @@ public class JoinController {
     public String join(@Validated @ModelAttribute("joinData") MemberDto memberDto, BindingResult bindingResult,
                        RedirectAttributes redirectAttributes) {
 
+        // 유효성 검사
+        if (bindingResult.hasErrors()) {
+            List<ObjectError> allErrors = bindingResult.getAllErrors();
+            for (ObjectError allError : allErrors) {
+                log.info("allError ={} ", allError);
+            }
+            return "join";
+        }
+
         Member joinMember = memberDto.toMember(memberDto);
         memberService.save(joinMember);
 
         redirectAttributes.addAttribute("nickName", joinMember.getNickName());
-        return "redirect:/login";
+        return "redirect:/join";
     }
 
     //닉네임 중복확인
@@ -50,6 +61,8 @@ public class JoinController {
         HashMap<String, Integer> resultMap = new HashMap<>();
 
         Integer count = memberService.countByNickName(nickName);
+        log.info("count ={} ", count);
+
 
         if (count == 1) {
             resultMap.put("result", count);

@@ -7,7 +7,10 @@
             <form id="joinForm" method="post" th:object="${joinData}">
                 <div>
                     <span>닉네임</span><span><input type="text" id="nickName" th:field="*{nickName}"></span>
-                    <span><button id="nickname-check">중복 확인</button></span>
+                    <span><button type="button" id="nickname-check">중복 확인</button></span>
+                    <div th:errors="*{nickName}" class="field-error nickname-error">
+                        닉네임 오류
+                    </div>
                     <div class="nickname-error"></div>
 
                     <span>아이디</span><span><input type="text" id="username" th:field="*{username}"></span><br>
@@ -21,7 +24,7 @@
                     <span>일</span><span><input type="text" id="day" th:field="*{day}"></span>
                 </div>
 
-                <button id="joinBtn">가입하기</button>
+                <button type="button" id="joinBtn">가입하기</button>
             </form>
         </div>
     </div>

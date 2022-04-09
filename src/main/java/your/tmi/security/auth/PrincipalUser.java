@@ -14,6 +14,6 @@ import java.lang.annotation.Target;
 * */
 @Retention(RetentionPolicy.RUNTIME) // 라이프 사이클 -> 어노테이션이 언제까지 살아남을지를 정함
 @Target(ElementType.PARAMETER)
-@AuthenticationPrincipal(expression = "#this == 'anonymousUser' ? null : basicUser" )
+@AuthenticationPrincipal(expression = "#this == 'anonymousUser' ? null : member" )
 public @interface PrincipalUser {
 }

@@ -23,7 +23,6 @@ public class Member {
 
     private String username;
     private String password;
-    private String rePassword;
     private String nickName;
 
     private String month;

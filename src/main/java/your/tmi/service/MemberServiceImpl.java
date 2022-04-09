@@ -2,6 +2,8 @@ package your.tmi.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import your.tmi.dto.MemberDto;
@@ -14,14 +16,19 @@ import your.tmi.repository.MemberRepository;
 public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepository;
+    @Lazy
+    private final PasswordEncoder passwordEncoder;
+
 
     //회원가입
     @Override
     @Transactional
     public Long save(Member member) {
+        String encPassword = passwordEncoder.encode(member.getPassword());
+
         return memberRepository.save(Member.builder()
                         .username(member.getUsername())
-                        .password(member.getPassword())
+                        .password(encPassword)
                         .nickName(member.getNickName())
                         .month(member.getMonth())
                         .day(member.getDay())
@@ -55,7 +62,9 @@ public class MemberServiceImpl implements MemberService{
     @Override
     @Transactional
     public Long testSave(Member member) {
-        return memberRepository.save(new Member(member.getUsername(), member.getPassword(), member.getNickName(),
+        String encPassword = passwordEncoder.encode(member.getPassword());
+
+        return memberRepository.save(new Member(member.getUsername(), encPassword, member.getNickName(),
                 member.getMonth(), member.getDay())).getId();
     }
 
