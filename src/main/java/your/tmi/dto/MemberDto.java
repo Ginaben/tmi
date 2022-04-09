@@ -19,6 +19,9 @@ public class MemberDto {
     private String day;
 
 
+    //join 컨트롤러에서..필요..
+    public MemberDto() {}
+
     //datail에 정보 불러오기
     public MemberDto(Member member) {
         this.id = member.getId();
@@ -27,9 +30,12 @@ public class MemberDto {
         this.day = member.getDay();
     }
 
-/*
-    public MemberDto() {}
+    public Member toMember(MemberDto memberDto) {
+        return new Member(memberDto.username, memberDto.password, memberDto.nickName,
+                memberDto.month, memberDto.day);
+    }
 
+/*
     public MemberDto(String username, String password, String nickName, String month, String day) {
         this.username = username;
         this.password = password;

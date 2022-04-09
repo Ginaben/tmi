@@ -1,6 +1,7 @@
 package your.tmi.entity;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,6 +29,9 @@ public class Member {
     private String month;
     private String day;
 
+    private String socialType;
+
+
     @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
     public List<Tmi> infoList = new ArrayList<>();
 
@@ -35,13 +39,33 @@ public class Member {
     public List<Group> groupList = new ArrayList<>();
 
 
-    public Member(String username, String password, String rePassword ,String nickName, String month, String day) {
+    //회원가입
+    @Builder
+    public Member(String username, String password, String nickName, String month, String day) {
         this.username = username;
         this.password = password;
-        this.rePassword = rePassword;
         this.nickName = nickName;
         this.month = month;
         this.day = day;
     }
+
+    // OAUTH 회원가입
+    @Builder(builderMethodName = "OauthRegister", buildMethodName = "oauthRegister")
+    public Member(String username, String password, String nickName, String month, String day,
+                  Boolean authState, String socialType) {
+        this.username = username;
+        this.password = password;
+        this.nickName = nickName;
+        this.month = month;
+        this.day = day;
+        this.socialType = socialType;
+    }
+
+    // oauth update
+    public Member update(String nickName) {
+        this.nickName = nickName;
+        return this;
+    }
+
 
 }

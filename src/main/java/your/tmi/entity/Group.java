@@ -21,5 +21,12 @@ public class Group {
     @JoinColumn(name = "mno")
     private Member member;
 
+
+    //group 생성
+    public Group (String groupName, Member member) {
+        this.groupName = groupName;
+        this.member = member;
+    }
+
 }
 

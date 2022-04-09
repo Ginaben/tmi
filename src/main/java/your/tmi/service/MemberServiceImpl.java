@@ -18,10 +18,23 @@ public class MemberServiceImpl implements MemberService{
     //회원가입
     @Override
     @Transactional
-    public Long save(String username, String password, String rePassword ,String nickName, String month, String day) {
-        Member member = memberRepository.save(new Member(username, password, rePassword, nickName, month, day));
-        return member.getId();
+    public Long save(Member member) {
+        return memberRepository.save(Member.builder()
+                        .username(member.getUsername())
+                        .password(member.getPassword())
+                        .nickName(member.getNickName())
+                        .month(member.getMonth())
+                        .day(member.getDay())
+                        .build())
+                .getId();
     }
+
+    /*    @Override
+    @Transactional
+    public Long save(String username, String password, String nickName, String month, String day) {
+        Member member = memberRepository.save(new Member(username, password, nickName, month, day));
+        return member.getId();
+    }*/
 
     //디테일에 정보 불러오기
     @Override
@@ -30,13 +43,19 @@ public class MemberServiceImpl implements MemberService{
         return new MemberDto(member);
     }
 
+    //닉네임 중복확인
+    @Override
+    public Integer countByNickName(String nickName) {
+        return memberRepository.countByNickName(nickName);
+    }
+
 
 
     //테스트 회원가입
     @Override
     @Transactional
     public Long testSave(Member member) {
-        return memberRepository.save(new Member(member.getUsername(), member.getPassword(), member.getRePassword(), member.getNickName(),
+        return memberRepository.save(new Member(member.getUsername(), member.getPassword(), member.getNickName(),
                 member.getMonth(), member.getDay())).getId();
     }
 
