@@ -21,6 +21,7 @@ public class LoginController {
 
         String referer = request.getHeader("Referer");
         request.getSession().setAttribute("redirectURI", referer);
+        log.info(">>>>>>>>" + referer);
 
         if (error != null) {
             model.addAttribute("error", "아이디 비번 체크");

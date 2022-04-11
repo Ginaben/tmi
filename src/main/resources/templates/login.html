@@ -13,12 +13,13 @@
                         <div class="left-box">
                             <span><input type="text" placeholder="아이디"></span>
                             <span><input type="password" placeholder="비밀번호"></span>
+                            <div th:if="${param.error}" style="color: #dc3545">아이디와 비밀번호를 확인해주세요.</div>
                         </div>
 
                         <div class="right-box">
-                        <span><button class="btn" type="submit">
-                            로그인
-                        </button></span>
+                            <span><button class="btn" type="submit">
+                                로그인
+                            </button></span>
                         </div>
                     </div>
                 </form>

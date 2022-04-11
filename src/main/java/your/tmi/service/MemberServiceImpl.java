@@ -64,6 +64,10 @@ public class MemberServiceImpl implements MemberService{
     public Long testSave(Member member) {
         String encPassword = passwordEncoder.encode(member.getPassword());
 
+/*
+        return memberRepository.save(new Member(member.getUsername(), member.getPassword(), member.getNickName(),
+                member.getMonth(), member.getDay())).getId();
+*/
         return memberRepository.save(new Member(member.getUsername(), encPassword, member.getNickName(),
                 member.getMonth(), member.getDay())).getId();
     }
