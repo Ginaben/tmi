@@ -31,7 +31,7 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
 
         // 아이디 또는 비밀번호 불일치
         if (exception instanceof BadCredentialsException || exception instanceof InternalAuthenticationServiceException) {
-            errorMsg = "아이디 또는 비밀번호를 다시 확인해주세요.";
+            errorMsg = "아이디 또는 비밀번호를 다시 확인해주세요22233.";
             log.info("아이디 비번 오류 >>>>>>>>>>>>>>>>>>");
         } else if (exception instanceof DisabledException) {
             errorMsg = "계정이 비활성화되었습니다.";
