@@ -18,6 +18,8 @@ public class MemberDto {
     private String month;
     private String day;
 
+    private int tmiCnt;
+
 
     //join 컨트롤러에서..필요..
     public MemberDto() {}
@@ -30,12 +32,24 @@ public class MemberDto {
         this.day = member.getDay();
     }
 
+    //회원가입.. 어떻게 쓰는건지 모르겠음
     public Member toMember(MemberDto memberDto) {
         return new Member(memberDto.username, memberDto.password, memberDto.nickName,
                 memberDto.month, memberDto.day);
     }
 
+    //검색하기
+    public MemberDto(Long id, String nickName, String month, String day, int tmiCnt) {
+        this.id = id;
+        this.nickName = nickName;
+        this.month = month;
+        this.day = day;
+        this.tmiCnt = tmiCnt;
+    }
+
+
 /*
+
     public MemberDto(String username, String password, String nickName, String month, String day) {
         this.username = username;
         this.password = password;
@@ -44,5 +58,6 @@ public class MemberDto {
         this.day = day;
     }
     */
+
 
 }

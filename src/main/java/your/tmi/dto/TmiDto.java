@@ -5,7 +5,6 @@ import lombok.Setter;
 import lombok.ToString;
 import your.tmi.entity.Member;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
