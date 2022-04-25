@@ -5,10 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import your.tmi.paging.RequestPageSortDto;
 import your.tmi.service.MemberService;
 import your.tmi.service.TmiService;
@@ -18,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
+@RequestMapping("/member")
 public class DetailController {
 
     private final MemberService memberService;
@@ -33,7 +31,7 @@ public class DetailController {
         Pageable pageable = requestPageDto.getPageableSort();
         model.addAttribute("tmi",tmiService.getTmi(pageable, id));
 
-        return "detail";
+        return "member/detail";
     }
 
     //마이페이지
@@ -41,7 +39,7 @@ public class DetailController {
     public String myPage(@PathVariable("id") Long id, Model model){
         model.addAttribute("member",memberService.getInfo(id));
 
-        return "myPage";
+        return "member/myPage";
     }
 
     //tmi저장
@@ -50,7 +48,7 @@ public class DetailController {
         String text = request.getParameter("text");
         tmiService.addTmi(text,id);
 
-        return "detail :: #list-table";
+        return "member/detail :: #list-table";
     }
 
     //tmi 삭제
@@ -64,7 +62,7 @@ public class DetailController {
         Pageable pageable = requestPageDto.getPageableSort();
         model.addAttribute("tmi",tmiService.getTmi(pageable, id));
 
-        return "detail :: #list-table";
+        return "member/detail :: #list-table";
     }
 
 
