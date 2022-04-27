@@ -3,10 +3,13 @@ package your.tmi.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import your.tmi.dto.MemberDto;
+import your.tmi.dto.search.SearchCondition;
 import your.tmi.entity.Member;
 import your.tmi.repository.MemberRepository;
 
@@ -56,6 +59,12 @@ public class MemberServiceImpl implements MemberService{
         return memberRepository.countByNickName(nickName);
     }
 
+
+    //검색 페이징
+    @Override
+    public Slice<MemberDto> searchDay(Pageable pageable, SearchCondition condition) {
+        return memberRepository.searchDay(pageable, condition);
+    }
 
 
     //테스트 회원가입
