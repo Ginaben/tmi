@@ -32,7 +32,7 @@ public class SearchController {
     }
 
     //검색 후 리스트
-    @GetMapping("/list")
+    @GetMapping("/pages/list")
     public String list(RequestPageSortDto requestPageDto, Model model,
                        SearchType searchType, String keyword) {
 

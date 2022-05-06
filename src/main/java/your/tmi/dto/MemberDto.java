@@ -18,7 +18,7 @@ public class MemberDto {
     private String month;
     private String day;
 
-    private int tmiCnt;
+    private Long tmiCnt;
 
 
     //join 컨트롤러에서..필요..
@@ -39,7 +39,7 @@ public class MemberDto {
     }
 
     //검색하기
-    public MemberDto(Long id, String nickName, String month, String day, int tmiCnt) {
+    public MemberDto(Long id, String nickName, String month, String day, Long tmiCnt) {
         this.id = id;
         this.nickName = nickName;
         this.month = month;

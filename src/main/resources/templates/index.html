@@ -15,9 +15,11 @@
 
     <!-- 검색하기 -->
     <div class="schBox">
-        <form method="get" th:action="@{/list}">
+        <form method="get" th:action="@{/pages/list}">
             <div class="left-box">
                 <select class="dropdown inline" name="searchType">
+                    <option th:each="searchType : ${T(your.tmi.dto.search.SearchType).values()}"
+                            th:value="${searchType}" th:text="${searchType.searchName}"></option>
                 </select>
 
                 <div class="search-bar inline">

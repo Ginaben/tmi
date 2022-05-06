@@ -20,7 +20,6 @@ import java.util.List;
 
 import static com.querydsl.core.types.ExpressionUtils.count;
 import static your.tmi.entity.QMember.member;
-import static your.tmi.entity.QTmi.tmi;
 
 public class MemberRepositoryImpl implements MemberRepositoryCustom{
 

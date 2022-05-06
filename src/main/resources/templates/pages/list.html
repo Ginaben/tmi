@@ -8,10 +8,15 @@
                 <th class="listTh">이름</th>
                 <th class="listTh">생월</th>
                 <th class="listTh">생일</th>
+                <th class="listTh">Tmi</th>
             </tr>
 
-            <tr class="listTb">
-                <td class="listTh"></td>
+            <tr th:each="list: ${search}" th:onclick="|javascript:goDetail('${list.id}')|"
+                class="listTb">
+                <td class="listTh">[[${list.nickName}]]</td>
+                <td class="listTh">[[${list.month}]]</td>
+                <td class="listTh">[[${list.day}]]</td>
+                <td class="listTh">[[${list.tmiCnt}]]</td>
             </tr>
         </table>
     </div>
@@ -22,7 +27,7 @@
     <script th:inline="javascript">
         function goDetail(id) {
             /*[+
-            let url = [[@{/detail/}]] + id;
+            let url = [[@{/member/detail/}]] + id;
             +]*/
 
             location.href = url;
