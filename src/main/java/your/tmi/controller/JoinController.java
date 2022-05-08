@@ -51,7 +51,7 @@ public class JoinController {
         memberService.save(joinMember);
 
         redirectAttributes.addAttribute("nickName", joinMember.getNickName());
-        return "redirect:/join";
+        return "redirect:/";
     }
 
     //닉네임 중복확인
