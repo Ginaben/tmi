@@ -52,6 +52,8 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
                 super.onAuthenticationSuccess(request, response, authentication);
             }
             getRedirectStrategy().sendRedirect(request, response, redirectUrl);
+        } else {
+            log.info("errorrrrrrrrrrrrrrrrrr>>>>>>");
         }
     }
 }
