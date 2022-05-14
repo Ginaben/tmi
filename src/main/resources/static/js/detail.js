@@ -13,7 +13,7 @@ $(".addBtn").on("click", function(){
     }
 
     $.ajax({
-        url: "/addTmi/" + mno,
+        url: "/member/addTmi/" + mno,
         method: "post",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         data: {
@@ -36,7 +36,7 @@ $(".deleteTmi").on("click", function(){
     let id = $(this).parent().children(".id").text();
 
     $.ajax({
-        url: "/deleteTmi/" + tno,
+        url: "/member/deleteTmi/" + tno,
         method: "delete",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         data: {
@@ -56,7 +56,7 @@ $(".deleteAll").on("click", function(){
     let id = $("#id").text();
 
     $.ajax({
-        url: "/delete/" + id,
+        url: "/member/delete/" + id,
         method: "delete",
         contentType: "application/x-www-form-urlencoded; charset=UTF-8",
         data: {
