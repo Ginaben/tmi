@@ -22,19 +22,19 @@ public class Group {
 
     private String groupName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mno")
-    private Member member;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "mno")
+//    private Member member;
 
-//    @OneToMany(mappedBy = "group", cascade = ALL, orphanRemoval = true)
-//    public List<Member> memberList = new ArrayList<>();
+    @OneToMany(mappedBy = "group", cascade = ALL, orphanRemoval = true)
+    public List<Member> memberList = new ArrayList<>();
 
 
     //group 생성
-    public Group (String groupName, Member member) {
-        this.groupName = groupName;
-        this.member = member;
-    }
+//    public Group (String groupName, Member member) {
+//        this.groupName = groupName;
+//        this.member = member;
+//    }
 
 }
 

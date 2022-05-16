@@ -35,12 +35,13 @@ public class Member {
     @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
     public List<Tmi> infoList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
-    public List<Group> groupList = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "gno")
+    private Group group;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "gno")
-//    private Group group;
+//    @OneToMany(mappedBy = "member", cascade = ALL, orphanRemoval = true)
+//    public List<Group> groupList = new ArrayList<>();
+
 
 
     //회원가입
