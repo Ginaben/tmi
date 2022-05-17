@@ -31,15 +31,15 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
 
         PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
 
-        List<String> roleList = new ArrayList<>();
-
-        principalDetails.getAuthorities().forEach(new Consumer<GrantedAuthority>() {
-            @Override
-            public void accept(GrantedAuthority grantedAuthority) {
-                roleList.add(grantedAuthority.getAuthority());
-                log.info("ROLELIST={}", grantedAuthority.getAuthority());
-            }
-        });
+//        List<String> roleList = new ArrayList<>();
+//
+//        principalDetails.getAuthorities().forEach(new Consumer<GrantedAuthority>() {
+//            @Override
+//            public void accept(GrantedAuthority grantedAuthority) {
+//                roleList.add(grantedAuthority.getAuthority());
+//                log.info("ROLELIST={}", grantedAuthority.getAuthority());
+//            }
+//        });
 
         HttpSession session = request.getSession();
 
