@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import your.tmi.dto.TmiDto;
 import your.tmi.entity.Member;
 import your.tmi.entity.Tmi;
@@ -36,6 +37,15 @@ public class TmiServiceImpl implements TmiService{
     @Override
     public void removeTmi(Long tno) {
         tmiRepository.deleteById(tno);
+    }
+
+
+    //테스트 TMI 저장
+    @Override
+    @Transactional
+    public Long addTestTmi(Tmi tmi) {
+        Member member = memberRepository.getById(tmi.getMember().getId());
+        return tmiRepository.save(new Tmi(tmi.getText(), member)).getId();
     }
 
 

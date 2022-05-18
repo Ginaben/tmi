@@ -2,7 +2,9 @@ package your.tmi.service;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.transaction.annotation.Transactional;
 import your.tmi.dto.TmiDto;
+import your.tmi.entity.Tmi;
 
 public interface TmiService {
     //TMI 저장
@@ -15,4 +17,7 @@ public interface TmiService {
     void removeTmi(Long tno);
 
 
-    }
+    //테스트 TMI 저장
+    Long addTestTmi(Tmi tmi);
+
+}
