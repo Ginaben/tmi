@@ -59,6 +59,10 @@ public class TestData {
 
             Tmi tmi1 = new Tmi("test1",findMember1);
             tmiService.addTestTmi(tmi1);
+            Tmi tmi2 = new Tmi("test2",findMember1);
+            tmiService.addTestTmi(tmi2);
+            Tmi tmi3 = new Tmi("test3",findMember1);
+            tmiService.addTestTmi(tmi3);
 
             em.flush();
             em.clear();
