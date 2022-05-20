@@ -5,7 +5,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import your.tmi.entity.Member;
+import your.tmi.entity.Tmi;
+import your.tmi.repository.MemberRepository;
 import your.tmi.service.MemberService;
+import your.tmi.service.TmiService;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
@@ -30,6 +33,9 @@ public class TestData {
         private final EntityManager em;
 
         private final MemberService memberService;
+        private final TmiService tmiService;
+
+        private final MemberRepository memberRepository;
 
         public void init() {
             Member member1 = new Member("1","1", "벤잠","12","3");
@@ -47,6 +53,16 @@ public class TestData {
 
             em.flush();
             em.clear();
+
+            Member findMember1 = memberRepository.getById(1L);
+            Member findMember2 = memberRepository.getById(2L);
+
+            Tmi tmi1 = new Tmi("test1",findMember1);
+            tmiService.addTestTmi(tmi1);
+
+            em.flush();
+            em.clear();
+
 
         }
     }
