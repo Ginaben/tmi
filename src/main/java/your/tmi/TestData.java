@@ -55,7 +55,7 @@ public class TestData {
             em.clear();
 
             Member findMember1 = memberRepository.getById(1L);
-            Member findMember2 = memberRepository.getById(2L);
+//            Member findMember2 = memberRepository.getById(2L);
 
             Tmi tmi1 = new Tmi("test1",findMember1);
             tmiService.addTestTmi(tmi1);
